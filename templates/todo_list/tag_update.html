@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Update Tag</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4">Update Tag</h1>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }} 
+      <button type="submit" class="btn btn-success mt-3">Save changes</button>
+      <a href="{% url 'todo_list:tag-list' %}" class="btn btn-secondary mt-3">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

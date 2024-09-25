@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+
+{% block title %}
+  <title>Create Task</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>Create New Task</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form|crispy }}
+      </div>
+      <button type="submit" class="btn btn-primary">Create Task</button>
+    </form>
+
+    <a href="{% url 'todo_list:home-page' %}" class="btn btn-secondary mt-3">Back to Task List</a>
+  </div>
+{% endblock %}
